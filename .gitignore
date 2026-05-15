@@ -1,0 +1,19 @@
+# Runtime outputs (never commit per-run data)
+output/
+downloads/
+temp/
+.playwright-mcp/
+
+# Secrets
+.env
+
+# Python build artefacts
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
