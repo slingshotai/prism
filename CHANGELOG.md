@@ -3,6 +3,13 @@
 All notable changes to PRISM will be documented here.
 Uses [Semantic Versioning](https://semver.org/) — MAJOR.MINOR.PATCH.
 
+## [0.1.1] — 2026-05-15
+
+### Documentation
+- README updated with `PRISM_HOME` env var documentation. Skills that depend on PRISM (MAGPIE, me-ig, sfv, agc-idea, veg-idea, ep-guest) find it via this env var with default `~/dev/slingshot/prism/`. Team members who clone PRISM somewhere else can override by setting `PRISM_HOME` in their shell profile.
+
+No code changes — this is a docs-only release. The pipeline itself is unchanged from v0.1.0.
+
 ## [0.1.0] — 2026-05-15
 
 ### Renamed from `igap`

@@ -70,7 +70,11 @@ Most users invoke PRISM through a lens skill rather than directly:
 - **MAGPIE** — discovery + analyse pipeline; runs PRISM as Stage C of the workflow
 - **me-ig, sfv, agc-idea, veg-idea, ep-guest** — single-video analytical lenses
 
-Those skills know where PRISM lives and shell out automatically.
+Those skills find PRISM via the `PRISM_HOME` env var (defaults to `~/dev/slingshot/prism/`). If you've installed PRISM somewhere else, set `PRISM_HOME` in your `~/.zshrc`:
+
+```bash
+export PRISM_HOME="/your/custom/path/to/prism"
+```
 
 ## Output format spec
 
