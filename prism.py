@@ -56,10 +56,19 @@ def check_prerequisites():
         print("Install with: brew install ffmpeg")
         sys.exit(1)
 
-    load_dotenv()
+    load_dotenv()  # project-root .env (back-compatible)
+    # Machine-local secrets kept OUTSIDE any repo, so API keys never live inside
+    # the shippable skill. Authoritative when present (overrides a stale/blank
+    # shell var). Honours $SLINGSHOT_SECRETS, else ~/.config/slingshot/secrets.env.
+    _secrets = os.getenv("SLINGSHOT_SECRETS") or os.path.expanduser(
+        "~/.config/slingshot/secrets.env"
+    )
+    if os.path.exists(_secrets):
+        load_dotenv(_secrets, override=True)
     if not os.getenv("ASSEMBLYAI_API_KEY"):
         print("Error: ASSEMBLYAI_API_KEY not set.")
-        print("Export it in your shell or add to .env (see .env.example).")
+        print("Export it in your shell, add it to .env, or put it in "
+              "~/.config/slingshot/secrets.env (see .env.example).")
         sys.exit(1)
 
 

@@ -3,6 +3,13 @@
 All notable changes to PRISM will be documented here.
 Uses [Semantic Versioning](https://semver.org/) — MAJOR.MINOR.PATCH.
 
+## [0.1.2] — 2026-06-03
+
+### Added — machine-local secrets file (keys outside the repo)
+
+- `prism.py` now also loads a machine-local secrets file (`$SLINGSHOT_SECRETS`, else `~/.config/slingshot/secrets.env`) in addition to a project-root `.env`. It's authoritative when present (`override=True`), so it corrects a stale/blank `ASSEMBLYAI_API_KEY` in the shell — which is what unblocks autonomous/scheduled runs (non-interactive shells don't inherit the interactive export).
+- Lets users keep API keys entirely **outside** the shippable repo. `.env.example` updated to document the option (still no key in the repo).
+
 ## [0.1.1] — 2026-05-15
 
 ### Documentation
